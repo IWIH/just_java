@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="IncrementButton" parent="android:Widget.Button">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">48dp</item>
+    </style>
+
 </resources>
