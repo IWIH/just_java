@@ -12,5 +12,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Quantity"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/quantityLabel"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+    <Button
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/quantityLabel"
+        android:id="@+id/increaseButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="__"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:id="@+id/quantityTextView"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_alignBottom="@+id/increaseButton"
+        android:layout_toRightOf="@+id/increaseButton"
+        android:layout_toEndOf="@+id/increaseButton" />
+
+
 </RelativeLayout>
