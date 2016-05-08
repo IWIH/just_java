@@ -37,7 +37,8 @@
             android:padding="8dp"
             android:text="___"
             android:textAllCaps="true"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/quantityTextView"/>
 
         <Button
             style="@style/IncrementButton"
@@ -61,7 +62,8 @@
         android:paddingTop="15dp"
         android:text="___"
         android:textAllCaps="true"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:id="@+id/priceTextView"/>
 
     <Button
         android:layout_width="wrap_content"
