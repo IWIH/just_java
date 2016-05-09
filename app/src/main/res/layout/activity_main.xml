@@ -1,75 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.android.example.justjava.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:text="Quantity"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-        android:textSize="30sp" />
-
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.android.example.justjava.MainActivity">
 
-        <Button
-            style="@style/IncrementButton"
-            android:text="-"
-            android:onClick="decreaseCoffee"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="whippedCreamClicked"
+            android:paddingBottom="8sp"
+            android:paddingLeft="16sp"
+            android:text="Whipped Cream"
+            android:textSize="25dp" />
 
         <TextView
-            android:layout_width="58dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="8dp"
-            android:text="___"
+            android:paddingBottom="20dp"
+            android:text="Quantity"
             android:textAllCaps="true"
-            android:textSize="30dp"
-            android:id="@+id/quantityTextView"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <Button
+                style="@style/IncrementButton"
+                android:onClick="decreaseCoffee"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/quantityTextView"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:text="___"
+                android:textAllCaps="true"
+                android:textSize="30dp" />
+
+            <Button
+                style="@style/IncrementButton"
+                android:onClick="increaseCoffee"
+                android:text="+" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Summary:"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingTop="15dp"
+            android:text="___"
+            android:textSize="15dp" />
 
         <Button
-            style="@style/IncrementButton"
-            android:text="+"
-            android:onClick="increaseCoffee"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="orderCoffee"
+            android:text="Order"
+            android:textAllCaps="true"
+            android:textSize="25dp" />
     </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-        android:textSize="30sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="30dp"
-        android:paddingTop="15dp"
-        android:text="___"
-        android:textAllCaps="true"
-        android:textSize="30dp"
-        android:id="@+id/priceTextView"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order"
-        android:textAllCaps="true"
-        android:textSize="25dp"
-        android:onClick="orderCoffee"/>
-</LinearLayout>
+</ScrollView>
