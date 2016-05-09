@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void decreaseCoffee(View view) {
         numberOfCoffees--;
         checkNumberOfCoffee();
+        displayCoffeeToUI();
     }
 
     private void checkNumberOfCoffee() {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void increaseCoffee(View view) {
         numberOfCoffees++;
+        displayCoffeeToUI();
     }
 
     public void orderCoffee(View view) {
