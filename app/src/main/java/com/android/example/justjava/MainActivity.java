@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private int numberOfCoffees = 0;
     private float coffeeUnitRate = 2;
     private boolean whippedCream;
+    private boolean chocolate;
+    private String customerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +27,37 @@ public class MainActivity extends AppCompatActivity {
         coffeesTextView = (TextView) findViewById(R.id.quantityTextView);
         priceTextView = (TextView) findViewById(R.id.priceTextView);
 
+        EditText nameEditText = (EditText) findViewById(R.id.customerNameEditText);
+        assert nameEditText != null;
+        nameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b)
+                    customerName = ((EditText) view).getText().toString();
+            }
+        });
+
         displayCoffeeToUI();
     }
 
     private void displayCoffeeToUI() {
-        coffeesTextView.setText("" + numberOfCoffees);
+        coffeesTextView.setText(String.valueOf(numberOfCoffees));
     }
 
     private void displayPriceToUI() {
         String formattedPrice = NumberFormat
-                .getCurrencyInstance()
-                .format(numberOfCoffees * coffeeUnitRate);
+                .getCurrencyInstance().format(numberOfCoffees * coffeeUnitRate);
 
         StringBuffer strBuffer = new StringBuffer();
         strBuffer
-                .append("Name: Osama Alwash\r\n")
-                .append("Whipped? ")
+                .append("Name: ")
+                .append(customerName)
+                .append("\r\n")
+                .append("Add Whipped Cream? ")
                 .append(whippedCream)
+                .append("\r\n")
+                .append("Add Chocolate? ")
+                .append(chocolate)
                 .append("\r\n")
                 .append("Quantity: ")
                 .append(numberOfCoffees)
@@ -75,5 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void whippedCreamClicked(View view) {
         whippedCream = ((CheckBox) view).isChecked();
+    }
+
+    public void chocolateClicked(View view) {
+        chocolate = ((CheckBox) view).isChecked();
     }
 }

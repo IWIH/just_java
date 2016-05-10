@@ -14,24 +14,29 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-
-        <CheckBox
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/customerNameEditText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="whippedCreamClicked"
-            android:paddingBottom="8sp"
-            android:paddingLeft="16sp"
-            android:text="Whipped Cream"
-            android:textSize="25dp" />
+            android:hint="Name" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:text="Quantity"
-            android:textAllCaps="true"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-            android:textSize="30sp" />
+            style="@style/SectionTitleTextView"
+            android:text="Toppings" />
+
+        <CheckBox
+            style="@style/ToppingsCheckBox"
+            android:onClick="whippedCreamClicked"
+            android:text="Whipped Cream" />
+
+        <CheckBox
+            style="@style/ToppingsCheckBox"
+            android:onClick="chocolateClicked"
+            android:text="Chocolate" />
+
+        <TextView
+            style="@style/SectionTitleTextView"
+            android:text="Quantity" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,12 +68,8 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order Summary:"
-            android:textAllCaps="true"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-            android:textSize="30sp" />
+            style="@style/SectionTitleTextView"
+            android:text="Order Summary:" />
 
         <TextView
             android:id="@+id/priceTextView"
