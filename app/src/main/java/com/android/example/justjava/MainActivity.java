@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView coffeesTextView;
     private TextView priceTextView;
+    private EditText customerNameEditText;
     private int numberOfCoffees = 0;
     private float coffeeUnitRate = 5;
     private float whippedCreamRate = 1;
     private float chocolateRate = 2;
     private boolean whippedCream;
     private boolean chocolate;
-    private String customerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         coffeesTextView = (TextView) findViewById(R.id.quantityTextView);
         priceTextView = (TextView) findViewById(R.id.priceTextView);
-
-        EditText nameEditText = (EditText) findViewById(R.id.customerNameEditText);
-        assert nameEditText != null;
-        nameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if (!b)
-                    customerName = ((EditText) view).getText().toString();
-            }
-        });
+        customerNameEditText = (EditText) findViewById(R.id.customerNameEditText);
 
         displayCoffeeToUI();
     }
@@ -69,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer strBuffer = new StringBuffer();
         strBuffer
                 .append("Name: ")
-                .append(customerName)
+                .append(getCustomerName())
                 .append("\r\n")
                 .append("Add Whipped Cream? ")
                 .append(whippedCream)
@@ -112,5 +103,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void chocolateClicked(View view) {
         chocolate = ((CheckBox) view).isChecked();
+    }
+
+    public String getCustomerName() {
+        return customerNameEditText.getText().toString();
     }
 }
