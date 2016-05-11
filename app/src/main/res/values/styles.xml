@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="IncrementButton" parent="android:Widget.Button">
+    <style name="IncrementButton">
         <item name="android:gravity">center_horizontal|center_vertical</item>
         <item name="android:textSize">25dp</item>
         <item name="android:clickable">true</item>
@@ -16,7 +16,7 @@
         <item name="android:layout_width">48dp</item>
     </style>
 
-    <style name="GenericAllCapsButton" parent="android:Widget.Button">
+    <style name="GenericAllCapsButton">
         <item name="android:gravity">center_horizontal|center_vertical</item>
         <item name="android:textSize">25dp</item>
         <item name="android:textAllCaps">true</item>
