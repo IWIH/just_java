@@ -1,5 +1,6 @@
 package com.android.example.justjava;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView coffeesTextView;
     private TextView priceTextView;
     private int numberOfCoffees = 0;
-    private float coffeeUnitRate = 2;
+    private float coffeeUnitRate = 5;
+    private float whippedCreamRate = 1;
+    private float chocolateRate = 2;
     private boolean whippedCream;
     private boolean chocolate;
     private String customerName;
@@ -44,10 +47,25 @@ public class MainActivity extends AppCompatActivity {
         coffeesTextView.setText(String.valueOf(numberOfCoffees));
     }
 
-    private void displayPriceToUI() {
-        String formattedPrice = NumberFormat
-                .getCurrencyInstance().format(numberOfCoffees * coffeeUnitRate);
+    private void displayOrderSummary() {
+        StringBuffer strBuffer = getOrderSummary(getPriceSummary());
 
+        priceTextView.setText
+                (strBuffer);
+    }
+
+    private String getPriceSummary() {
+        float finalUniteRate = coffeeUnitRate;
+        if (whippedCream) finalUniteRate += whippedCreamRate;
+        if (chocolate) finalUniteRate += chocolateRate;
+
+        float totalPrice = numberOfCoffees * finalUniteRate;
+
+        return NumberFormat.getCurrencyInstance().format(totalPrice);
+    }
+
+    @NonNull
+    private StringBuffer getOrderSummary(String formattedPrice) {
         StringBuffer strBuffer = new StringBuffer();
         strBuffer
                 .append("Name: ")
@@ -66,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 .append(formattedPrice)
                 .append("\r\n")
                 .append("Thank you! <3");
-
-        priceTextView.setText
-                (strBuffer);
+        return strBuffer;
     }
 
     public void decreaseCoffee(View view) {
@@ -87,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void orderCoffee(View view) {
-        displayPriceToUI();
+        displayOrderSummary();
     }
 
     public void whippedCreamClicked(View view) {
